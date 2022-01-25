@@ -1,7 +1,7 @@
 const express = require("express");
 const { gql } = require("apollo-server");
 const { ApolloServer } = require("apollo-server-express");
-import axios from 'axios';
+const axios = require('axios');
 // import { userProfile } from '../FirebaseFunctions/userProfile';
 
 const app = express();

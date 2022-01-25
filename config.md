@@ -50,3 +50,5 @@ heroku logs --tail
 git add .
 git commit -m "Configuración del Puerto"
 git push heroku main
+
+    "start": "nodemon src/server.js --exec babel-node"
