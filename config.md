@@ -31,3 +31,9 @@ git remote add origin https://github.com/EBERSHR/virtualccback.git
 
 
 Deploy
+sudo snap install --classic heroku
+git init
+heroku git:remote -a virtualccback
+git add .
+git commit -am "Deploy testing"
+git push heroku master
