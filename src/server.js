@@ -1,12 +1,13 @@
 const express = require("express");
+const cors = require('cors')
 const { gql } = require("apollo-server");
 const { ApolloServer } = require("apollo-server-express");
-import axios from 'axios';
+const axios = require('axios');
 // import { userProfile } from '../FirebaseFunctions/userProfile';
 
 const app = express();
 
-
+app.use(cors());
 
 const typeDefs = gql`
   type User {
@@ -40,6 +41,7 @@ const resolvers = {
     Query: {
       users: async () => {
         const results = await axios.get(`${baseURL}/data.json`);
+        console.log(results.data)
         const values = Object.values(results.data)
         const mappedValues = values.map(item => {
            const graphqlUser = userProfile(item)
@@ -66,11 +68,13 @@ async function startServer() {
 }
 startServer();
 
-app.get("/rest", function (req, res) {
-    res.json({ data: "api working" });
+app.get("/", function (req, res) {
+    res.json({ data: "Virtual C.C. API - is working." });
 });
 
-app.listen(4000, function () {
+const port = process.env.PORT || 4000;
+
+app.listen(port, function () {
     console.log(`server running on port 4000`);
     console.log(`gql path is ${apolloServer.graphqlPath}`);
 });
