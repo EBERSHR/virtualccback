@@ -24,7 +24,8 @@ type Query {
   }
 `;
 
-const baseURL = "https://contro-comercial-default-rtdb.firebaseio.com";
+// const baseURL = "https://contro-comercial-default-rtdb.firebaseio.com";
+const baseURL = "https://contro-comercial-default-rtdb.firebaseio.com/data.json";
 
 function userProfile(data) {
   return {
@@ -45,9 +46,9 @@ const resolvers = {
         const values = Object.values(results.data)
         const mappedValues = values.map(item => {
            const graphqlUser = userProfile(item)
-          return graphqlUser
+          return JSON.parse(graphqlUser)
         })
-        return mappedValues;
+        return JSON.parse(mappedValues);
     },
     findUser: (_, {id}) => {
       User.find((u) => u.id === id)
