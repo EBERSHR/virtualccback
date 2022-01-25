@@ -41,6 +41,7 @@ const resolvers = {
     Query: {
       users: async () => {
         const results = await axios.get(`${baseURL}/data.json`);
+        console.log(results.data)
         const values = Object.values(results.data)
         const mappedValues = values.map(item => {
            const graphqlUser = userProfile(item)
