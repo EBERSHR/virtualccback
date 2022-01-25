@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const { gql } = require("apollo-server");
 const { ApolloServer } = require("apollo-server-express");
 const axios = require('axios');
@@ -6,6 +7,7 @@ const axios = require('axios');
 
 const app = express();
 
+app.use(cors());
 
 
 const typeDefs = gql`
