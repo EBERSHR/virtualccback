@@ -17,6 +17,15 @@ Configuración del archivo .babelrc
     ]
 }
 
+Configuración para desarrollo package.json
+    "start": "nodemon src/server.js --exec babel-node --watch src"
+Configuración para desarrollo package.json
+    "start": "node src/server.js"
+
+
+
+
+
 Backend
 Firebase Realtime Database Storage
 GraphQl
@@ -52,3 +61,40 @@ git commit -m "Configuración del Puerto"
 git push heroku main
 
     "start": "nodemon src/server.js --exec babel-node"
+
+
+Conexción con firebase
+https://firebase.google.com/docs/web/setup?hl=es
+https://firebase.google.com/docs/database/web/read-and-write
+https://www.youtube.com/watch?v=KnAsYNhI_CY
+
+
+
+Añadir en un archivo firebase.js las credenciales del proyecto
+
+Referenciar una base de datos
+    import { getDatabase } from "firebase/database";
+    const database = getDatabase();
+
+Escribir datos
+    import { getDatabase, ref, set } from "firebase/database";
+
+    function writeUserData(userId, name, email, imageUrl) {
+        const db = getDatabase();
+        set(ref(db, 'users/' + userId), {
+            username: name,
+            email: email,
+            profile_picture : imageUrl
+        });
+    }
+
+Leer datos
+    import { getDatabase, ref, onValue} from "firebase/database";
+
+    const db = getDatabase();
+    const starCountRef = ref(db, 'posts/' + postId + '/starCount');
+    onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        updateStarCount(postElement, data);
+    });
+
