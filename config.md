@@ -33,7 +33,7 @@ GraphQl
 Repositorio Github
 git init
 git add .
-git commit -m "first commit"
+git commit -m "Second commit"
 git remote add origin https://github.com/EBERSHR/virtualccback.git
 
 
