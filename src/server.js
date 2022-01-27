@@ -6,33 +6,20 @@ const axios = require('axios');
 // import { userProfile } from '../FirebaseFunctions/userProfile';
 const { getDatabase, ref, onValue, get, child} = require("firebase/database");
 const { initializeApp } = require("firebase/app");
-const firebaseConfig = require('./FirebaseFunctions/firebase')
+const firebaseConfig = require('./FirebaseFunctions/firebase');
+const baseURL = "https://contro-comercial-default-rtdb.firebaseio.com";
 
 
 // Initialize Firebase
 const fireApp = initializeApp(firebaseConfig);
-
-
-
 const db = getDatabase();
-
-
-// const getData = () => {
-//   const dbRef = ref(db);
-//   get(child(dbRef, "data"))
-//   .then(snapshot => {
-//     console.log('SNAPSHOT(VAL)', snapshot.val())
-//   });
-// }
-
-// getData();
 const app = express();
 
 app.use(cors());
 
 const typeDefs = gql`
   type User {
-    id: Int
+    id: Int!
     fullname: String
     email: String!
     location: String
@@ -45,10 +32,9 @@ const typeDefs = gql`
 type Query {
     users: [User]
     prueba: Prueba
+    findPersonId(id: Int!): User
   }
 `;
-
-const baseURL = "https://contro-comercial-default-rtdb.firebaseio.com";
 
 function userProfile(data) {
   // console.log('DATA::::::', data)
@@ -61,41 +47,34 @@ function userProfile(data) {
     location: data.location
   };
 }
-
 const resolvers = {
     Query: {
         users: async () => {
         const results = await axios.get(`${baseURL}/data.json`);
         const values = Object.values(results.data);
         const mappedValues = values.map(item => {
-           const graphqlUser = userProfile(item)
-          return graphqlUser
+           const graphqlUser = userProfile(item);
+          return graphqlUser;
         })
-        return mappedValues
+        return mappedValues;
     },
     prueba: async () => {
       const results = await axios.get(`${baseURL}/prueba.json`);
-      console.log(results)
+      console.log(results.data)
       return results.data;
+    },
+    findPersonId: async (root, args) => {
+      const { id } = args
+      const results = await axios.get(`${baseURL}/data.json`);
+      const objectIds = Object.values(results.data);
+      const y = objectIds.find(x => x.id === Number(id) )
+      console.log('Y', y);
+      return y;
     }
 
 
 
-    // users: async () => {
-    //   const dbRef = ref(db);
-    //   get(child(dbRef, "data"))
-    //   .then(snapshot => {
-    //     console.log('SNAPSHO.VAL:::::', snapshot.val())
-    //     const values = Object.values(snapshot.val());
-    //     console.log('VALUES::::', values)
-    //     const mappedValues = values.map(item => {
-    //       //  const graphqlUser = userProfile(item)
-    //       // return graphqlUser
-    //       console.log('ITEM::::::', item)
-    //     })
-    //     return mappedValues;
-    //   });
-    // } 
+
 
 
 

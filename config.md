@@ -57,7 +57,7 @@ https://virtualccback.herokuapp.com/
 heroku logs --tail
 
 git add .
-git commit -m "Configuración del Puerto"
+git commit -m "Actualizaciones"
 git push heroku main
 
     "start": "nodemon src/server.js --exec babel-node"
@@ -98,3 +98,44 @@ Leer datos
         updateStarCount(postElement, data);
     });
 
+
+
+
+
+
+
+
+
+
+
+
+
+Código muerto para pruebas
+
+    // users: async () => {
+    //   const dbRef = ref(db);
+    //   get(child(dbRef, "data"))
+    //   .then(snapshot => {
+    //     console.log('SNAPSHO.VAL:::::', snapshot.val())
+    //     const values = Object.values(snapshot.val());
+    //     console.log('VALUES::::', values)
+    //     const mappedValues = values.map(item => {
+    //       //  const graphqlUser = userProfile(item)
+    //       // return graphqlUser
+    //       console.log('ITEM::::::', item)
+    //     })
+    //     return mappedValues;
+    //   });
+    // } 
+
+
+
+    // const getData = () => {
+//   const dbRef = ref(db);
+//   get(child(dbRef, "data"))
+//   .then(snapshot => {
+//     console.log('SNAPSHOT(VAL)', snapshot.val())
+//   });
+// }
+
+// getData();
