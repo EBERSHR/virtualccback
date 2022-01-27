@@ -45,7 +45,7 @@ git init
 heroku git:remote -a virtualccback
 git add .
 git commit -am "Deploy testing"
-git push heroku master
+git commit -am "Deploy testing"
 You can now change your main deploy branch from "master" to "main" for both manual and automatic deploys, please follow the instructions here https://help.heroku.com/O0EXQZTA/how-do-i-switch-branches-from-master-to-main
 
 git checkout -b main
