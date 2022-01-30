@@ -1,11 +1,13 @@
 function userProfile(data) {
-    return {
-      age: data.age,
-      citizen: data.citizen,
-      email: data.email,
-      fullName: data.fullName,
-      location: data.location
-    };
-  }
+  // console.log('DATA::::::', data)
+  return {
+    id: data.id,
+    age: data.age,
+    citizen: data.citizen,
+    email: data.email,
+    fullname: data.fullname,
+    location: data.location
+  };
+}
   
   export default userProfile;

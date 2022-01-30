@@ -1,0 +1,105 @@
+{
+    "data": {
+        "01": {
+            "age": 20,
+            "citizen": true,
+            "email": "myemail@email.com",
+            "fullname": "Full Name",
+            "id": 5,
+            "location": "Location"
+        },
+        "02": {
+            "age": 21,
+            "citizen": true,
+            "email": "myemail@email.com",
+            "fullname": "Full Name",
+            "id": 4,
+            "location": "Location"
+        },
+        "03": {
+            "age": 22,
+            "citizen": true,
+            "email": "myemail@email.com",
+            "fullname": "Full Name",
+            "id": 3,
+            "location": "Location"
+        },
+        "04": {
+            "age": 23,
+            "citizen": true,
+            "email": "myemail@email.com",
+            "fullname": "Full Name",
+            "id": 2,
+            "location": "Location"
+        },
+        "05": {
+            "age": 24,
+            "citizen": true,
+            "email": "myemail@email.com",
+            "fullname": "Full Name",
+            "id": 1,
+            "location": "Location"
+        },
+        "5a403be0-7f90-11ec-8b29-f94a6bb09648": {
+            "age": "50",
+            "citizen": true,
+            "email": "ebershr@gmail.com",
+            "fullname": "Eber Hernández",
+            "id": "5a403be0-7f90-11ec-8b29-f94a6bb09648",
+            "location": "Bello - Antioquia"
+        },
+        "e40d0b70-7f89-11ec-8b29-f94a6bb09648": {
+            "age": "43",
+            "citizen": true,
+            "email": "leyder.gallego@gmail.com",
+            "fullname": "Léyder Gallego",
+            "id": "e40d0b70-7f89-11ec-8b29-f94a6bb09648",
+            "location": "Bello - Antioquia"
+        }
+    },
+    "prueba": {
+        "prueba": "dato de prueba"
+    },
+    "users": {
+        "a7232d30-7f7e-11ec-998e-e3baeaf09a5f": {
+            "id": "a7232d30-7f7e-11ec-998e-e3baeaf09a5f",
+            "user": "admin",
+            "rol": "admin",
+            "password": "admin",
+            "phone": [
+                "3123456789",
+                "3123456789"
+            ],
+            "mobile": [
+                "3123456789",
+                "3123456789"
+            ],
+            "names": "String",
+            "lastnames": "Boolean",
+            "addresses": [
+                "Dirección 1",
+                "Dirección 2"
+            ],
+            "postcode": "String",
+            "city": "String",
+            "country": "String",
+            "delivery_address": "String",
+            "email": "String",
+            "birthdate": "String",
+            "age": 1,
+            "identitycard": "String",
+            "sex": "String",
+            "creditcards": [
+                "1232 765 87654 0987",
+                "7685 983 03832 6654"
+            ],
+            "wallets": [
+                "asefalskdfjñalksdjñflaksjdflaksdjfl",
+                "jañsldkjfñalskdjfñlaskjdfñlkajsdñlf"
+            ],
+            "storeId": "String",
+            "active": true,
+            "image": "String"
+        }
+    }
+}
