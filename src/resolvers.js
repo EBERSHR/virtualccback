@@ -11,7 +11,9 @@ const fireApp = initializeApp(firebaseConfig);
 const db = getDatabase();
 
 const resolvers = {
+
   Query: {
+  
     users: async () => {
       const results = await axios.get(`${baseURL}/data.json`);
       const values = Object.values(results.data);
@@ -21,11 +23,13 @@ const resolvers = {
       })
       return mappedValues;
     },
+
     prueba: async () => {
       const results = await axios.get(`${baseURL}/prueba.json`);
       console.log(results.data)
       return results.data;
     },
+
     findPersonId: async (root, args) => {
       const { id } = args
       const results = await axios.get(`${baseURL}/data.json`);
@@ -34,7 +38,9 @@ const resolvers = {
       console.log('Y', y);
       return y;
     }
+
   },
+
   Mutation: {
   addUser: async (root, args) => {
   const id = uuid();
