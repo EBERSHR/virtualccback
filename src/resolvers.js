@@ -1,8 +1,8 @@
 const baseURL = "https://contro-comercial-default-rtdb.firebaseio.com";
-import axios from 'axios';
-import userProfile from './FirebaseFunctions/userProfile';
-import { getDatabase, ref, set } from "firebase/database";
-import {v1 as uuid} from 'uuid';
+const axios = require('axios');
+const userProfile = require('./FirebaseFunctions/userProfile');
+const { getDatabase, ref, set } = require("firebase/database");
+const {uuid} = require('uuid');
 
 // Initialize Firebase
 const { initializeApp } = require("firebase/app");
@@ -32,7 +32,7 @@ const resolvers = {
 
     findPersonId: async (root, args) => {
       const { id } = args
-      const results = await axios.get(`${baseURL}/data.json`);
+      const results = await axios.get(`${baseURL}/users.json`);
       const objectIds = Object.values(results.data);
       const y = objectIds.find(x => x.id === Number(id))
       console.log('Y', y);
@@ -50,4 +50,4 @@ const resolvers = {
   }
 };
   
-  export default resolvers;
+module.exports = resolvers;

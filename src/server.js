@@ -1,8 +1,14 @@
-import express from 'express';
-import cors from 'cors'
-import { ApolloServer } from 'apollo-server-express';
-import resolvers from "./resolvers";
-import typeDefs from "./typeDefs";
+// import express from 'express';
+const express = require('express')
+// import cors from 'cors'
+const cors = require('cors')
+
+// import { ApolloServer } from 'apollo-server-express';
+const {ApolloServer} = require('apollo-server-express')
+// import resolvers from "./resolvers";
+const resolvers = require('./resolvers')
+// import typeDefs from "./typeDefs";
+const typeDefs = require('./typeDefs');
 
 const app = express();
 

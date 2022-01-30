@@ -10,4 +10,4 @@ function userProfile(data) {
   };
 }
   
-  export default userProfile;
+module.exports = userProfile;
