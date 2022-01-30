@@ -21,7 +21,7 @@ async function startServer() {
 startServer();
 
 app.get("/", function (req, res) {
-  res.json({ data: "Virtual C.C. API - is working." });
+  res.json({ data: "Virtual C.C. API --> is working." });
 });
 
 const port = process.env.PORT || 4000;
